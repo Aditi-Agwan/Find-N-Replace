@@ -15,8 +15,8 @@ public class Demo {
 
 	public static void main(String[] args) {
 		
-		String search="California is in America.";
-		String replace="Delhi is in India.";
+		String search=args[0];
+		String replace=args[1];
 		// TODO Auto-generated method stub
         File csvFile = new File("C:\\Users\\agwan\\eclipse-workspace\\Sample\\src\\prac\\sample.csv");
         File dataFile = new File("C:\\Users\\agwan\\eclipse-workspace\\Sample\\src\\prac\\new.csv");
