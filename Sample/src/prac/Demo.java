@@ -2,6 +2,7 @@ package prac;
 
 import java.io.File;
 
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStreamReader;
@@ -27,6 +28,7 @@ public class Demo {
         	  CSVPrinter csvPrinter =null;
         	  int flag=0;
         	  int temp=0;
+        	  int success = 0;
         	  
         	  for(CSVRecord csvRecord : parser) {
         		 
@@ -34,7 +36,8 @@ public class Demo {
         		if(flag==0) {
         		  flag=1;	
         		  op=new OutputStreamWriter(new FileOutputStream(dataFile));
-        		  csvPrinter= new CSVPrinter(op, CSVFormat.DEFAULT.withHeader("ID","Data","New Data"));
+        		  csvPrinter= new CSVPrinter(op, CSVFormat.DEFAULT);
+        		  csvPrinter.printRecord("ID","Data","New Data");
         		  continue;
         		}
         		
@@ -42,8 +45,10 @@ public class Demo {
                 if(search.equals(csvRecord.get(1))) {
                 	csvPrinter.printRecord(csvRecord.get(0),csvRecord.get(1),replace);
                 	csvPrinter.flush();
-                	System.out.println("Record successfully updated at index (ID) : " + csvRecord.get(0));
+                	// System.out.println("Record successfully updated at index (ID) : " + csvRecord.get(0));
                 	temp=1;
+                	success =1;
+                	
                 }
                 else {
                 	csvPrinter.printRecord(csvRecord.get(0),csvRecord.get(1),csvRecord.get(1));
@@ -52,8 +57,11 @@ public class Demo {
                
                }
         	   if(temp==0) {
-        		   System.out.println("Record not found");
+        		  //  System.out.println("Record not found");
+        		   success =0 ;
         	   }
+        	   new FindText(success);
+        	   
         }catch(Exception e) {
         	System.out.println(e.getMessage());
         }
