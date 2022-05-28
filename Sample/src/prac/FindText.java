@@ -4,7 +4,13 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class FindText extends Frame{
-    FindText(){
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
+	FindText(){
     	 TextField tf1 , tf2;
     	 Label l1 , l2;
     	 
@@ -38,7 +44,12 @@ public class FindText extends Frame{
          		String find = tf1.getText();
          		String replace = tf2.getText();
          		String args[] = {find , replace};
-                Demo.main(args);
+         		try {
+					fileprac.main(args);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
                }
          });
           
@@ -49,8 +60,11 @@ public class FindText extends Frame{
         	 l.setBounds(60,160,170,20);
         	 if(success==1)
         		 l.setText("Record Updated successfully .");
+        	 else if(success==0)
+        		 l.setText("Record not found.");
+        	 
         	 else
-        		 l.setText("Record not found .");
+        		 l.setText("Something went wrong.");
         	 add(l);
         	 setSize(200,200);
         	 setVisible(true);
