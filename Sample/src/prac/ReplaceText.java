@@ -14,8 +14,8 @@ public class fileprac {
 		String replace=args[1];
 		
 		 try {
-			 File csvFile = new File("C:\\Users\\agwan\\eclipse-workspace\\Sample\\src\\prac\\sample.csv");
-			 File dataFile = new File("C:\\Users\\agwan\\eclipse-workspace\\Sample\\src\\prac\\new.csv");
+			 File csvFile = new File("C:\\Users\\agwan\\eclipse-workspace\\Sample\\src\\prac\\feedback dataset.csv");
+			 File dataFile = new File("C:\\Users\\agwan\\eclipse-workspace\\Sample\\src\\prac\\temp.csv");
 			 String content = null;
 			 
 			 if(!dataFile.exists())
